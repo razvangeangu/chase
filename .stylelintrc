@@ -1,0 +1,16 @@
+{
+  "processors": ["stylelint-processor-styled-components"],
+  "extends": [
+    "stylelint-scss",
+    "stylelint-config-recommended",
+    "stylelint-config-prettier",
+    "stylelint-config-sass-guidelines",
+    "stylelint-selector-bem-pattern",
+    "stylelint-config-styled-components"
+  ],
+  "rules": {
+    "max-nesting-depth": [2, {
+      "ignore": ["pseudo-classes"]
+    }]
+  }
+}
