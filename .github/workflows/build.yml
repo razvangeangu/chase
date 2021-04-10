@@ -15,7 +15,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: actions/setup-node@master
+      - uses: actions/setup-node@v2
       - uses: c-hive/gha-yarn-cache@v1
 
       - name: Install 🔧
