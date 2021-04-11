@@ -1,15 +1,19 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Dimensions,
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
   SafeAreaView,
   StatusBar,
   View,
 } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Video from 'react-native-video';
 import styled, { useTheme } from 'styled-components/native';
+import { translations } from '../../../locales/translations';
 import FilledButton from '../../components/FilledButton';
 import FlatButton from '../../components/FlatButton';
 import Input from '../../components/Input';
@@ -30,6 +34,8 @@ export interface LoginPageProps {
 export default function LoginPage({ navigation }: LoginPageProps) {
   const theme = useTheme();
 
+  const { t } = useTranslation();
+
   const [paused, setPaused] = useState<boolean>(false);
 
   const handleLogin = () => {
@@ -38,32 +44,40 @@ export default function LoginPage({ navigation }: LoginPageProps) {
   };
 
   return (
-    <SafeAreaView>
-      <StatusBar barStyle={theme.barStyle} />
-      <StyledVideo
-        source={backgroundVideo}
-        muted={true}
-        repeat={true}
-        resizeMode="cover"
-        paused={paused}
-        rate={1.0}
-        ignoreSilentSwitch="obey"
-      />
-      <StyledView as={View} />
-      <LoginView>
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          keyboardVerticalOffset={40}>
-          <Logo as={ChaseLogo} />
-          <LoginContainer>
-            <StyledInput label="Enter your user ID" />
-            <StyledInput label="Enter your password" secureTextEntry />
-            <FilledButton onPress={handleLogin} title="Sign In" />
-            <FlatButton title="Forgot User ID or Password?" />
-          </LoginContainer>
-        </KeyboardAvoidingView>
-      </LoginView>
-    </SafeAreaView>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <SafeAreaView>
+        <StatusBar barStyle={theme.barStyle} />
+        <StyledVideo
+          source={backgroundVideo}
+          muted={true}
+          repeat={true}
+          resizeMode="cover"
+          paused={paused}
+          rate={1.0}
+          ignoreSilentSwitch="obey"
+        />
+        <StyledView as={View} />
+        <LoginView>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            keyboardVerticalOffset={40}>
+            <Logo as={ChaseLogo} />
+            <LoginContainer>
+              <StyledInput label={t(translations.loginPage.userId)} />
+              <StyledInput
+                label={t(translations.loginPage.password)}
+                secureTextEntry
+              />
+              <FilledButton
+                onPress={handleLogin}
+                title={t(translations.loginPage.signIn)}
+              />
+              <FlatButton title={t(translations.loginPage.forgot)} />
+            </LoginContainer>
+          </KeyboardAvoidingView>
+        </LoginView>
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }
 

@@ -1,4 +1,4 @@
-package com.chase;
+package com.razvangeangu.Chase;
 
 import com.facebook.react.ReactActivity;
 

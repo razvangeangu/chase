@@ -1,9 +1,10 @@
 import React from 'react';
-import { TouchableWithoutFeedbackProps } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
+type ExtractProps<P> = P extends React.ComponentType<infer T> ? T : never;
 export interface FilledButtonProps
-  extends Pick<TouchableWithoutFeedbackProps, 'onPress'> {
+  extends Pick<ExtractProps<typeof TouchableOpacity>, 'onPress'> {
   title: string;
 }
 
@@ -15,7 +16,7 @@ export default function FilledButton({ title, onPress }: FilledButtonProps) {
   );
 }
 
-const StyledTouchableOpacity = styled.TouchableOpacity`
+const StyledTouchableOpacity = styled(TouchableOpacity)`
   background-color: ${p => p.theme.primary};
   border-radius: 20px;
   padding: 12px 4px;

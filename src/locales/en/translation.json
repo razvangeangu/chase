@@ -10,6 +10,12 @@
     "cards": "Cards",
     "transactions": "Transactions"
   },
+  "loginPage": {
+    "userId": "Enter your user ID",
+    "password": "Enter your password",
+    "signIn": "Sign In",
+    "forgot": "Forgot User ID or Password?"
+  },
   "transactions": {
     "bills": "Bills",
     "business": "Business",

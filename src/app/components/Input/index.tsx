@@ -9,7 +9,7 @@ export default function Input({
 TextInputProps & { label?: string }) {
   return (
     <>
-      <Label>{label}</Label>
+      <Label numberOfLines={1}>{label}</Label>
       <StyledInput {...props} />
     </>
   );
@@ -24,5 +24,6 @@ const Label = styled.Text`
 const StyledInput = styled.TextInput`
   border: 1px solid ${p => p.theme.border};
   border-radius: 4px;
+  color: ${p => p.theme.surface.text};
   padding: 8px 12px;
 `;
