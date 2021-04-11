@@ -1,0 +1,46 @@
+export const blue = {
+  50: '#e7f2fa',
+  100: '#cfe4f4',
+  200: '#a0caea',
+  300: '#70afdf',
+  400: '#4195d5',
+  500: '#117aca',
+  600: '#0e62a2',
+  700: '#0a4979',
+  800: '#073151',
+  900: '#031828',
+  950: '#020c14',
+};
+
+export const grey = {
+  50: '#f3f3f3',
+  100: '#e6e6e6',
+  200: '#cecece',
+  300: '#b5b5b5',
+  400: '#9d9d9d',
+  500: '#848484',
+  600: '#6a6a6a',
+  700: '#4f4f4f',
+  800: '#353535',
+  900: '#211e1e',
+  950: '#0d0d0d',
+};
+
+export const transactions = {
+  bills: '#313438',
+  business: '#3340f5',
+  cash: '#6eb7f7',
+  charity: '#6833f5',
+  eatingOut: '#5cc9ca',
+  education: '#ec6a86',
+  entertainment: '#313438',
+  family: '#ef8e5b',
+  general: '#4f9ae7',
+  groceries: '#ec6a86',
+  holidays: '#f19e51',
+  housing: '#3340f5',
+  investments: '#5cc9ca',
+  personalCare: '#ec6a86',
+  shopping: '#5cc9ca',
+  transport: '#6833f5',
+};

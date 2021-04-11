@@ -1,3 +1,31 @@
 {
-  "appName": "Chase UK"
+  "appName": "Chase",
+  "homePage": {
+    "totalBalance": "Total Balance"
+  },
+  "creditCard": {
+    "balance": "Balance"
+  },
+  "cardPage": {
+    "cards": "Cards",
+    "transactions": "Transactions"
+  },
+  "transactions": {
+    "bills": "Bills",
+    "business": "Business",
+    "cash": "Cash",
+    "charity": "Charity",
+    "eatingOut": "Eating Out",
+    "education": "Education",
+    "entertainment": "Entertainment",
+    "family": "Family",
+    "general": "General",
+    "groceries": "Groceries",
+    "holidays": "Holidays",
+    "housing": "Housing",
+    "investments": "Investments",
+    "personalCare": "Personal Care",
+    "shopping": "Shopping",
+    "transport": "Transport"
+  }
 }

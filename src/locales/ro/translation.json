@@ -1,3 +1,31 @@
 {
-  "appName": "Chase RO"
+  "appName": "Chase",
+  "homePage": {
+    "totalBalance": "Balanță Totală"
+  },
+  "creditCard": {
+    "balance": "Balanță"
+  },
+  "cardPage": {
+    "cards": "Carduri",
+    "transactions": "Tranzacții"
+  },
+  "transactions": {
+    "bills": "Taxe",
+    "business": "Activitate Comercială",
+    "cash": "Numerar",
+    "charity": "Caritate",
+    "eatingOut": "Mâncat în Oraș",
+    "education": "Educație",
+    "entertainment": "Divertisment",
+    "family": "Familie",
+    "general": "General",
+    "groceries": "Produse Alimentare",
+    "holidays": "Vacanțe",
+    "housing": "Locuință",
+    "investments": "Investiții",
+    "personalCare": "Îngrijire Personală",
+    "shopping": "Cumpărături",
+    "transport": "Transport"
+  }
 }
