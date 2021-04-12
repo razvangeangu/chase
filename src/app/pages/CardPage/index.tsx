@@ -180,6 +180,8 @@ export default function CardPage({ minHeight }: CardPageProps) {
         centerContent
         decelerationRate={0}
         snapToInterval={kCardWidth + kCreditCardMarginRight}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         // eslint-disable-next-line react-native/no-inline-styles
         contentContainerStyle={{
           paddingLeft: 47,
