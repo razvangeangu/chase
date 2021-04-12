@@ -24,7 +24,6 @@ module.exports = {
         depth: 3,
       },
     ],
-    '@typescript-eslint/no-unused-vars': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
     'react/jsx-props-no-spreading': [
       2,
@@ -39,6 +38,7 @@ module.exports = {
     {
       files: ['**/*.ts?(x)'],
       rules: { 'prettier/prettier': ['warn', prettierOptions] },
+      parser: '@typescript-eslint/parser',
     },
   ],
   env: {

@@ -1,5 +1,4 @@
-import { StackNavigationProp } from '@react-navigation/stack';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Dimensions,
@@ -14,6 +13,7 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Video from 'react-native-video';
 import styled, { useTheme } from 'styled-components/native';
 import { translations } from '../../../locales/translations';
+import AuthContext from '../../../utils/auth-context';
 import FilledButton from '../../components/FilledButton';
 import FlatButton from '../../components/FlatButton';
 import Input from '../../components/Input';
@@ -24,15 +24,13 @@ const { height, width } = Dimensions.get('window');
 
 const logoHeight = width / 14;
 
-export interface LoginPageProps {
-  navigation: StackNavigationProp<
-    { Home: undefined; Forgot: undefined },
-    'Home'
-  >;
-}
-
-export default function LoginPage({ navigation }: LoginPageProps) {
+export default function LoginPage() {
   const theme = useTheme();
+
+  const [userId, setUserId] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const { signIn } = useContext(AuthContext);
 
   const { t } = useTranslation();
 
@@ -40,7 +38,15 @@ export default function LoginPage({ navigation }: LoginPageProps) {
 
   const handleLogin = () => {
     setPaused(true);
-    navigation.navigate('Home');
+    signIn(userId, password);
+  };
+
+  const handleChangeUserId = (text: string) => {
+    setUserId(text);
+  };
+
+  const handleChangePassword = (text: string) => {
+    setPassword(text);
   };
 
   return (
@@ -63,9 +69,13 @@ export default function LoginPage({ navigation }: LoginPageProps) {
             keyboardVerticalOffset={40}>
             <Logo as={ChaseLogo} />
             <LoginContainer>
-              <StyledInput label={t(translations.loginPage.userId)} />
+              <StyledInput
+                label={t(translations.loginPage.userId)}
+                onChangeText={handleChangeUserId}
+              />
               <StyledInput
                 label={t(translations.loginPage.password)}
+                onChangeText={handleChangePassword}
                 secureTextEntry
               />
               <FilledButton

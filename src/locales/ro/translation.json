@@ -16,6 +16,9 @@
     "signIn": "Autentificare",
     "forgot": "Ați uitat contul de utilizator sau parola?"
   },
+  "settingsPage": {
+    "signOut": "Deconectați-vă"
+  },
   "transactions": {
     "bills": "Taxe",
     "business": "Activitate Comercială",

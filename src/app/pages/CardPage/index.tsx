@@ -165,6 +165,7 @@ export default function CardPage({ minHeight }: CardPageProps) {
     },
   ];
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleCardPress = (card: CreditCardProps) => {
     // TODO: implement
   };
