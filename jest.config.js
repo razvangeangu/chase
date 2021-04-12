@@ -19,6 +19,12 @@ module.exports = {
   moduleNameMapper: {
     '\\.svg': '<rootDir>/__mocks__/svg-mock.js',
     '\\.png': '<rootDir>/__mocks__/png-mock.js',
+    '\\.mp4': '<rootDir>/__mocks__/mp4-mock.js',
   },
   setupFilesAfterEnv: ['./src/setupTests.ts'],
+  coveragePathIgnorePatterns: [
+    'node_modules',
+    '\\.(svg|png|mp4)$',
+    '-mock\\.js',
+  ],
 };
