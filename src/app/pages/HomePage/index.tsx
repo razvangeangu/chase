@@ -1,8 +1,8 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import moment from 'moment';
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Dimensions, StatusBar } from 'react-native';
+import { Dimensions, StatusBar, View } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import { AbstractChartConfig } from 'react-native-chart-kit/dist/AbstractChart';
 import { LineChartData } from 'react-native-chart-kit/dist/line-chart/LineChart';
@@ -10,6 +10,7 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import { Rect, Svg, Text as TextSVG } from 'react-native-svg';
 import BottomSheet from 'reanimated-bottom-sheet';
 import styled, { useTheme } from 'styled-components/native';
 import { translations } from '../../../locales/translations';
@@ -39,6 +40,13 @@ export default function HomePage({ navigation }: HomePageProps) {
   moment.locale(i18n.language);
 
   const theme = useTheme();
+
+  const [tooltipPos, setTooltipPos] = useState({
+    x: 0,
+    y: 0,
+    visible: false,
+    value: 0,
+  });
 
   const data: LineChartData = {
     labels: [1, 2, 3, 4, 5, 6].map(month =>
@@ -103,6 +111,61 @@ export default function HomePage({ navigation }: HomePageProps) {
                 height={height / 3}
                 withHorizontalLabels={false}
                 chartConfig={chartConfig}
+                decorator={() => {
+                  const rectWidth =
+                    tooltipPos.value.toString().length * 14 + 20;
+                  const rectHeight = 40;
+
+                  const x = tooltipPos.x - rectWidth / 2;
+                  const y = tooltipPos.y + rectHeight / 2;
+
+                  return tooltipPos.visible ? (
+                    <View>
+                      <Svg>
+                        <Rect
+                          x={x}
+                          y={y}
+                          width={rectWidth}
+                          height={rectHeight}
+                          fill={theme.surface.background}
+                          rx={20}
+                        />
+                        <TextSVG
+                          x={tooltipPos.x}
+                          y={y + rectHeight - 14}
+                          fill={theme.surface.text}
+                          fontSize="16"
+                          fontWeight="bold"
+                          textAnchor="middle">
+                          {Intl.NumberFormat(i18n.language, {
+                            style: 'currency',
+                            currency: 'GBP',
+                          }).format(tooltipPos.value)}
+                        </TextSVG>
+                      </Svg>
+                    </View>
+                  ) : null;
+                }}
+                onDataPointClick={chartData => {
+                  const isSamePoint =
+                    tooltipPos.x === chartData.x &&
+                    tooltipPos.y === chartData.y;
+
+                  isSamePoint
+                    ? setTooltipPos(previousState => {
+                        return {
+                          ...previousState,
+                          value: chartData.value,
+                          visible: !previousState.visible,
+                        };
+                      })
+                    : setTooltipPos({
+                        x: chartData.x,
+                        value: chartData.value,
+                        y: chartData.y,
+                        visible: true,
+                      });
+                }}
                 bezier
               />
             </TotalBalanceContainer>
