@@ -3,12 +3,10 @@ import React from 'react';
 import { useColorScheme } from 'react-native';
 import { useTheme } from 'styled-components/native';
 
-type ExtractProps<P> = P extends React.ForwardRefExoticComponent<infer T>
-  ? T
-  : never;
-
 const StyledNavigationContainer: React.FC<
-  ExtractProps<typeof NavigationContainer>
+  typeof NavigationContainer extends React.ForwardRefExoticComponent<infer T>
+    ? T
+    : never
 > = props => {
   const theme = useTheme();
 

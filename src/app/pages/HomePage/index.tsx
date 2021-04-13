@@ -1,4 +1,3 @@
-import { StackNavigationProp } from '@react-navigation/stack';
 import moment from 'moment';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +14,7 @@ import BottomSheet from 'reanimated-bottom-sheet';
 import styled, { useTheme } from 'styled-components/native';
 import { translations } from '../../../locales/translations';
 import StyledText from '../../components/StyledText';
+import NavigationProps from '../../router';
 import CardPage from '../CardPage';
 import ChaseLogo from './assets/chase-logo.svg';
 import Settings from './assets/settings.svg';
@@ -23,14 +23,9 @@ const { width, height } = Dimensions.get('window');
 
 const logoHeight = width / 14;
 
-export interface HomePageProps {
-  navigation: StackNavigationProp<
-    { Home: undefined; Settings: undefined },
-    'Home'
-  >;
-}
+export interface HomePageProps extends NavigationProps<'Home'> {}
 
-export default function HomePage({ navigation }: HomePageProps) {
+export default function HomePage({ navigation: { navigate } }: HomePageProps) {
   const { i18n, t } = useTranslation();
 
   const insets = useSafeAreaInsets();
@@ -77,7 +72,7 @@ export default function HomePage({ navigation }: HomePageProps) {
   };
 
   const handlePressSettings = () => {
-    navigation.navigate('Settings');
+    navigate('Settings');
   };
 
   return (

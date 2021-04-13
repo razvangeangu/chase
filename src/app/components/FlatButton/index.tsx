@@ -2,9 +2,11 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
-type ExtractProps<P> = P extends React.ComponentType<infer T> ? T : never;
 export interface FlatButtonProps
-  extends Pick<ExtractProps<typeof TouchableOpacity>, 'onPress'> {
+  extends Pick<
+    typeof TouchableOpacity extends React.ComponentType<infer T> ? T : never,
+    'onPress'
+  > {
   title: string;
 }
 

@@ -6,6 +6,8 @@ import { translations } from '../../../locales/translations';
 import AuthContext from '../../../utils/auth-context';
 import FilledButton from '../../components/FilledButton';
 
+export interface SettingsPageProps {}
+
 export default function SettingsPage() {
   const theme = useTheme();
 
