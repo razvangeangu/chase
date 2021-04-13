@@ -9,6 +9,7 @@ const ignoreTransformation = [
   'react-native-chart-kit',
   'react-native-reanimated',
   'react-native-video',
+  'react-viro',
 ];
 
 module.exports = {

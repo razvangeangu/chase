@@ -20,3 +20,15 @@ jest.mock('react-native-reanimated', () => {
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
 jest.mock('react-native-video', () => 'Video');
+
+jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
+
+jest.mock('react-native', () => {
+  const RN = jest.requireActual('react-native');
+
+  RN.NativeModules.VRTARTrackingTargetsModule = {
+    createTargets: jest.fn(),
+  };
+
+  return RN;
+});
