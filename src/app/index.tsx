@@ -37,12 +37,14 @@ const StyledNavigator: React.FC<
   const authContext = useMemo<AuthContextType>(
     () => ({
       signIn: () => {
+        // TODO: sanitisation of userId and password
         setUser({});
       },
       signOut: () => {
         setUser(null);
       },
       signUp: () => {
+        // TODO: sanitisation of userId and password
         setUser({});
       },
     }),

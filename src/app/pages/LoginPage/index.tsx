@@ -4,6 +4,7 @@ import {
   Dimensions,
   Keyboard,
   KeyboardAvoidingView,
+  Linking,
   Platform,
   SafeAreaView,
   StatusBar,
@@ -49,6 +50,13 @@ export default function LoginPage() {
     setPassword(text);
   };
 
+  const handleForgotPassword = () => {
+    // TODO: add in-app functionality
+    Linking.openURL(
+      'https://secure03b.chase.com/web/auth/#/logon/forgotLoginDetails/identifyCustomer/index',
+    ).catch(error => console.error("Couldn't load page", error));
+  };
+
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <SafeAreaView>
@@ -82,7 +90,10 @@ export default function LoginPage() {
                 onPress={handleLogin}
                 title={t(translations.loginPage.signIn)}
               />
-              <FlatButton title={t(translations.loginPage.forgot)} />
+              <FlatButton
+                onPress={handleForgotPassword}
+                title={t(translations.loginPage.forgot)}
+              />
             </LoginContainer>
           </KeyboardAvoidingView>
         </LoginView>
