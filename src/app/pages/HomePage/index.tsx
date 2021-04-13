@@ -187,7 +187,7 @@ const HeaderView = styled.View`
 `;
 
 const SettingsButton = styled.TouchableOpacity`
-  left: 40px;
+  left: 30px;
   padding: 10px;
   position: absolute;
   top: 2px;

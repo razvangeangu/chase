@@ -98,7 +98,7 @@ const Row = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 40px 40px 20px;
+  padding: 40px 30px 20px;
 `;
 
 const ScrollLine = styled.View`
@@ -150,7 +150,7 @@ const TransactionCategory = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 20px;
-  padding: 0 40px;
+  padding: 0 30px;
 `;
 
 const CreditCardView = styled.View`
