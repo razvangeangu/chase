@@ -1,7 +1,8 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ColorValue, Dimensions } from 'react-native';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { ColorValue, Dimensions, TouchableOpacity } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import { translations } from '../../../locales/translations';
 import index from '../../../utils/get-index';
@@ -23,16 +24,24 @@ interface CardPageProps {
 export default function CardPage({ minHeight }: CardPageProps) {
   const { i18n, t } = useTranslation();
 
+  const { navigate } = useNavigation();
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleCardPress = (card: CreditCardProps) => {
     // TODO: implement
+  };
+
+  const handleMoreTransactionsPress = (title: string) => {
+    navigate('Transactions', { title });
   };
 
   return (
     <StyledView minHeight={minHeight}>
       <ScrollLine />
 
-      <Header numberOfLines={2}>{t(translations.cardPage.cards)}</Header>
+      <Row>
+        <Header numberOfLines={2}>{t(translations.cardPage.cards)}</Header>
+      </Row>
       <StyledScrollView
         horizontal
         centerContent
@@ -56,31 +65,41 @@ export default function CardPage({ minHeight }: CardPageProps) {
         ))}
       </StyledScrollView>
 
-      <Header>{t(translations.cardPage.transactions)}</Header>
-      <Transactions>
-        {transactions.map(({ name, icon, color }) => (
-          <TransactionCategory key={name}>
-            <TransactionInfo>
-              <TransactionIconContainer color={color}>
-                <TransactionIcon as={icon} />
-              </TransactionIconContainer>
-              <TransactionLabel numberOfLines={1}>
-                {t(index(translations, name))}
-              </TransactionLabel>
-            </TransactionInfo>
+      <Row>
+        <Header>{t(translations.cardPage.transactions)}</Header>
+      </Row>
+      {transactions.map(({ name, icon, color }) => (
+        <TransactionCategory
+          key={name}
+          onPress={() => handleMoreTransactionsPress(name)}>
+          <TransactionInfo>
+            <TransactionIconContainer color={color}>
+              <TransactionIcon as={icon} />
+            </TransactionIconContainer>
+            <TransactionLabel numberOfLines={1}>
+              {t(index(translations, name))}
+            </TransactionLabel>
+          </TransactionInfo>
 
-            <TransactionCost>
-              {Intl.NumberFormat(i18n.language, {
-                style: 'currency',
-                currency: 'GBP',
-              }).format(Math.random() * 1000)}
-            </TransactionCost>
-          </TransactionCategory>
-        ))}
-      </Transactions>
+          <TransactionCost>
+            {Intl.NumberFormat(i18n.language, {
+              style: 'currency',
+              currency: 'GBP',
+            }).format(Math.random() * 1000)}
+          </TransactionCost>
+        </TransactionCategory>
+      ))}
     </StyledView>
   );
 }
+
+const Row = styled.View`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 40px 40px 20px;
+`;
 
 const ScrollLine = styled.View`
   background-color: ${p => p.theme.border};
@@ -125,16 +144,13 @@ const TransactionIconContainer = styled.View<{ color: ColorValue }>`
   padding: 12px;
 `;
 
-const Transactions = styled.View`
-  margin: 0 40px;
-`;
-
-const TransactionCategory = styled.View`
+const TransactionCategory = styled.TouchableOpacity`
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 20px;
+  padding: 0 40px;
 `;
 
 const CreditCardView = styled.View`
@@ -154,6 +170,4 @@ const StyledView = styled.View<{ minHeight?: number }>`
 const Header = styled(StyledSurfaceText)`
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
-  padding: 40px 40px 0;
 `;

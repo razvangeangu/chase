@@ -10,6 +10,7 @@ import AuthContext, { AuthContextType } from '../utils/auth-context';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SettingsPage from './pages/SettingsPage';
+import TransactionsPage from './pages/TransactionsPage';
 
 const Stack = createStackNavigator();
 
@@ -23,9 +24,11 @@ export default function App() {
   );
 }
 
-type ExtractProps<P> = P extends React.ComponentType<infer T> ? T : never;
 const StyledNavigator: React.FC<
-  Omit<ExtractProps<typeof Stack.Navigator>, 'children'>
+  Omit<
+    typeof Stack.Navigator extends React.ComponentType<infer T> ? T : never,
+    'children'
+  >
 > = ({ screenOptions, ...props }) => {
   const [user, setUser] = useState<any>(null);
 
@@ -68,6 +71,11 @@ const StyledNavigator: React.FC<
             <Stack.Screen
               name="Settings"
               component={SettingsPage}
+              options={{ headerShown: true }}
+            />
+            <Stack.Screen
+              name="Transactions"
+              component={TransactionsPage}
               options={{ headerShown: true }}
             />
           </>

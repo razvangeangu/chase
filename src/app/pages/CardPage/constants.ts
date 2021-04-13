@@ -20,82 +20,82 @@ import Transport from './assets/transport.svg';
 
 export const transactions = [
   {
-    name: 'transactions.bills',
+    name: 'transactions.bills' as const,
     icon: Bills,
     color: transactionColors.bills,
   },
   {
-    name: 'transactions.business',
+    name: 'transactions.business' as const,
     icon: Business,
     color: transactionColors.business,
   },
   {
-    name: 'transactions.cash',
+    name: 'transactions.cash' as const,
     icon: Cash,
     color: transactionColors.cash,
   },
   {
-    name: 'transactions.charity',
+    name: 'transactions.charity' as const,
     icon: Charity,
     color: transactionColors.charity,
   },
   {
-    name: 'transactions.eatingOut',
+    name: 'transactions.eatingOut' as const,
     icon: EatingOut,
     color: transactionColors.eatingOut,
   },
   {
-    name: 'transactions.education',
+    name: 'transactions.education' as const,
     icon: Education,
     color: transactionColors.education,
   },
   {
-    name: 'transactions.entertainment',
+    name: 'transactions.entertainment' as const,
     icon: Entertainment,
     color: transactionColors.entertainment,
   },
   {
-    name: 'transactions.family',
+    name: 'transactions.family' as const,
     icon: Family,
     color: transactionColors.family,
   },
   {
-    name: 'transactions.general',
+    name: 'transactions.general' as const,
     icon: General,
     color: transactionColors.general,
   },
   {
-    name: 'transactions.groceries',
+    name: 'transactions.groceries' as const,
     icon: Groceries,
     color: transactionColors.groceries,
   },
   {
-    name: 'transactions.holidays',
+    name: 'transactions.holidays' as const,
     icon: Holidays,
     color: transactionColors.holidays,
   },
   {
-    name: 'transactions.housing',
+    name: 'transactions.housing' as const,
     icon: Housing,
     color: transactionColors.housing,
   },
   {
-    name: 'transactions.investments',
+    name: 'transactions.investments' as const,
     icon: Investments,
     color: transactionColors.investments,
   },
   {
-    name: 'transactions.personalCare',
+    name: 'transactions.personalCare' as const,
     icon: PersonalCare,
     color: transactionColors.personalCare,
   },
   {
-    name: 'transactions.shopping',
+    name: 'transactions.shopping' as const,
     icon: Shopping,
     color: transactionColors.shopping,
   },
   {
-    name: 'transactions.transport',
+    name: 'transactions.transport' as const,
     icon: Transport,
     color: transactionColors.transport,
   },
