@@ -72,7 +72,7 @@ export default function HomePage({ navigation: { navigate } }: HomePageProps) {
   };
 
   const handlePressSettings = () => {
-    navigate('Settings');
+    navigate(t(translations.routes.settings) as 'Settings');
   };
 
   return (

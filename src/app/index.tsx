@@ -1,9 +1,11 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import 'moment/locale/ro';
 import React, { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'styled-components';
 // Import languages
 import '../locales/i18n';
+import { translations } from '../locales/translations';
 import StyledNavigationContainer from '../styles/StyledNavigationContainer';
 import ThemeProvider from '../styles/ThemeProvider';
 import AuthContext, { AuthContextType } from '../utils/auth-context';
@@ -49,6 +51,8 @@ const StyledNavigator: React.FC<
 
   const theme = useTheme();
 
+  const { t } = useTranslation();
+
   return (
     <AuthContext.Provider value={authContext}>
       <Stack.Navigator
@@ -67,14 +71,17 @@ const StyledNavigator: React.FC<
         }}>
         {user != null ? (
           <>
-            <Stack.Screen name="Home" component={HomePage} />
             <Stack.Screen
-              name="Settings"
+              name={t(translations.routes.home)}
+              component={HomePage}
+            />
+            <Stack.Screen
+              name={t(translations.routes.settings)}
               component={SettingsPage}
               options={{ headerShown: true }}
             />
             <Stack.Screen
-              name="Transactions"
+              name={t(translations.routes.transactions)}
               component={TransactionsPage}
               options={{ headerShown: true }}
             />
@@ -82,7 +89,7 @@ const StyledNavigator: React.FC<
         ) : (
           <>
             <Stack.Screen
-              name="Login"
+              name={t(translations.routes.login)}
               component={LoginPage}
               options={{
                 cardStyle: { backgroundColor: theme?.surface?.background },

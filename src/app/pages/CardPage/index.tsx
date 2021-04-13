@@ -32,7 +32,7 @@ export default function CardPage({ minHeight }: CardPageProps) {
   };
 
   const handleMoreTransactionsPress = (title: string) => {
-    navigate('Transactions', { title });
+    navigate(t(translations.routes.transactions) as 'Transactions', { title });
   };
 
   return (

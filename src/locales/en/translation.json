@@ -36,5 +36,11 @@
     "personalCare": "Personal Care",
     "shopping": "Shopping",
     "transport": "Transport"
+  },
+  "routes": {
+    "home": "Home",
+    "settings": "Settings",
+    "transactions": "Transactions",
+    "login": "Login"
   }
 }
