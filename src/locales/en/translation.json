@@ -41,6 +41,13 @@
     "home": "Home",
     "settings": "Settings",
     "transactions": "Transactions",
-    "login": "Login"
+    "login": "Login",
+    "ar": "AR Experience"
+  },
+  "cardScene": {
+    "totalBalance": "Total Balance",
+    "thisMonth": "This month",
+    "income": "Income",
+    "outcome": "Outcome"
   }
 }
