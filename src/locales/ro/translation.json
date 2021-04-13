@@ -41,6 +41,13 @@
     "home": "Acasă",
     "settings": "Setări",
     "transactions": "Tranzacții",
-    "login": "Autentificare"
+    "login": "Autentificare",
+    "ar": "Experiență augmentată"
+  },
+  "cardScene": {
+    "totalBalance": "Balanță Totală",
+    "thisMonth": "Luna aceasta",
+    "income": "Venit",
+    "outcome": "Cheltuieli"
   }
 }

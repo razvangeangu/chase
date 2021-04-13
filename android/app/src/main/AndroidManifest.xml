@@ -2,6 +2,7 @@
   package="com.razvangeangu.Chase">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
       android:name=".MainApplication"
@@ -9,6 +10,7 @@
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
+      android:usesCleartextTraffic="true"
       android:theme="@style/AppTheme">
       <activity
         android:name=".MainActivity"
@@ -20,7 +22,12 @@
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
+            <category android:name="com.google.intent.category.CARDBOARD" />
         </intent-filter>
       </activity>
+      <meta-data android:name="com.google.ar.core" android:value="optional" />
+      <meta-data
+        android:name="com.samsung.android.vr.application.mode"
+        android:value="vr_only"/>
     </application>
 </manifest>

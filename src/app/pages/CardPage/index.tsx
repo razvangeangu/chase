@@ -1,10 +1,11 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ColorValue, Dimensions, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import { translations } from '../../../locales/translations';
+import CardContext from '../../../utils/card-context';
 import index from '../../../utils/get-index';
 import CreditCard, {
   CreditCardProps,
@@ -26,9 +27,11 @@ export default function CardPage({ minHeight }: CardPageProps) {
 
   const { navigate } = useNavigation();
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { setCard } = useContext(CardContext);
+
   const handleCardPress = (card: CreditCardProps) => {
-    // TODO: implement
+    setCard(card);
+    navigate(t(translations.routes.ar));
   };
 
   const handleMoreTransactionsPress = (title: string) => {
