@@ -1,7 +1,13 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ColorValue, Dimensions, TouchableOpacity } from 'react-native';
+import {
+  ColorValue,
+  Dimensions,
+  Platform,
+  TouchableOpacity,
+} from 'react-native';
+import { isEmulator } from 'react-native-device-info';
 import { ScrollView } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import { translations } from '../../../locales/translations';
@@ -31,7 +37,13 @@ export default function CardPage({ minHeight }: CardPageProps) {
 
   const handleCardPress = (card: CreditCardProps) => {
     setCard(card);
-    navigate(t(translations.routes.ar));
+
+    isEmulator().then(isEmu => {
+      if (!isEmu && (Platform.OS === 'android' || Platform.OS === 'ios')) {
+        console.log('merge aic');
+        navigate(t(translations.routes.ar));
+      }
+    });
   };
 
   const handleMoreTransactionsPress = (title: string) => {

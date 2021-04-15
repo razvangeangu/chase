@@ -10,6 +10,7 @@ const ignoreTransformation = [
   'react-native-reanimated',
   'react-native-video',
   'react-viro',
+  'react-native-device-info',
 ];
 
 module.exports = {
