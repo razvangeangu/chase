@@ -1,3 +1,53 @@
 {
-  "appName": "Chase UK"
+  "appName": "Chase",
+  "homePage": {
+    "totalBalance": "Total Balance"
+  },
+  "creditCard": {
+    "balance": "Balance"
+  },
+  "cardPage": {
+    "cards": "Cards",
+    "transactions": "Transactions"
+  },
+  "loginPage": {
+    "userId": "Enter your user ID",
+    "password": "Enter your password",
+    "signIn": "Sign In",
+    "forgot": "Forgot User ID or Password?"
+  },
+  "settingsPage": {
+    "signOut": "Sign Out"
+  },
+  "transactions": {
+    "bills": "Bills",
+    "business": "Business",
+    "cash": "Cash",
+    "charity": "Charity",
+    "eatingOut": "Eating Out",
+    "education": "Education",
+    "entertainment": "Entertainment",
+    "family": "Family",
+    "general": "General",
+    "groceries": "Groceries",
+    "holidays": "Holidays",
+    "housing": "Housing",
+    "investments": "Investments",
+    "personalCare": "Personal Care",
+    "shopping": "Shopping",
+    "transport": "Transport"
+  },
+  "routes": {
+    "home": "Home",
+    "settings": "Settings",
+    "transactions": "Transactions",
+    "login": "Login",
+    "ar": "AR Experience"
+  },
+  "cardScene": {
+    "totalBalance": "Total Balance",
+    "thisMonth": "This month",
+    "income": "Income",
+    "outcome": "Outcome"
+  }
 }
