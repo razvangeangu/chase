@@ -40,7 +40,6 @@ export default function CardPage({ minHeight }: CardPageProps) {
 
     isEmulator().then(isEmu => {
       if (!isEmu && (Platform.OS === 'android' || Platform.OS === 'ios')) {
-        console.log('merge aic');
         navigate(t(translations.routes.ar));
       }
     });
