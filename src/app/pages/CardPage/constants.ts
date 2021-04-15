@@ -134,7 +134,7 @@ export const cards: CreditCardProps[] = [
   },
   {
     id: 3,
-    number: '5539000999018772',
+    number: '342874460842607',
     code: 123,
     holderName: 'R G GEANGU',
     holderTitle: 'MR',

@@ -24,6 +24,7 @@ export default function SettingsPage() {
       <StatusBar barStyle={theme.barStyle} />
       <StyledView>
         <FilledButton
+          testID="signOutButton"
           title={t(translations.settingsPage.signOut)}
           onPress={handleSignOut}
         />

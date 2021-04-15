@@ -54,7 +54,7 @@ export default function LoginPage() {
     // TODO: add in-app functionality
     Linking.openURL(
       'https://secure03b.chase.com/web/auth/#/logon/forgotLoginDetails/identifyCustomer/index',
-    ).catch(error => console.error("Couldn't load page", error));
+    );
   };
 
   return (
@@ -78,10 +78,12 @@ export default function LoginPage() {
             <Logo as={ChaseLogo} />
             <LoginContainer>
               <StyledInput
+                testID="userIdInput"
                 label={t(translations.loginPage.userId)}
                 onChangeText={handleChangeUserId}
               />
               <StyledInput
+                testID="passwordInput"
                 label={t(translations.loginPage.password)}
                 onChangeText={handleChangePassword}
                 secureTextEntry

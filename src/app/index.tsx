@@ -17,7 +17,7 @@ import LoginPage from './pages/LoginPage';
 import SettingsPage from './pages/SettingsPage';
 import TransactionsPage from './pages/TransactionsPage';
 
-const Stack = createStackNavigator();
+export const Stack = createStackNavigator();
 
 export default function App() {
   return (

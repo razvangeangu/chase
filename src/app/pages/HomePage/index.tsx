@@ -81,7 +81,9 @@ export default function HomePage({ navigation: { navigate } }: HomePageProps) {
         <StatusBar barStyle={theme.barStyle} />
         <StyledView>
           <HeaderView>
-            <SettingsButton onPress={handlePressSettings}>
+            <SettingsButton
+              testID="settingsButton"
+              onPress={handlePressSettings}>
               <SettingsIcon />
             </SettingsButton>
             <Logo svgHeight={logoHeight} />
@@ -115,7 +117,7 @@ export default function HomePage({ navigation: { navigate } }: HomePageProps) {
                   const y = tooltipPos.y + rectHeight / 2;
 
                   return tooltipPos.visible ? (
-                    <View>
+                    <View testID="tooltip">
                       <Svg>
                         <Rect
                           x={x}

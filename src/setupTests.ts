@@ -19,9 +19,12 @@ jest.mock('react-native-reanimated', () => {
 // Silence the warning: Animated: `useNativeDriver` is not supported because the native animated module is missing
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
-jest.mock('react-native-video', () => 'Video');
+jest.mock('react-native/Libraries/Utilities/useColorScheme', () => ({
+  __esModule: true,
+  default: jest.fn().mockReturnValue('light'),
+}));
 
-jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
+jest.mock('react-native-video', () => 'Video');
 
 jest.mock('react-native', () => {
   const RN = jest.requireActual('react-native');
@@ -32,3 +35,8 @@ jest.mock('react-native', () => {
 
   return RN;
 });
+
+jest.mock('react-native-safe-area-context', () => ({
+  ...jest.requireActual('react-native-safe-area-context'),
+  useSafeAreaInsets: () => ({ top: 0, right: 0, bottom: 0, left: 0 }),
+}));

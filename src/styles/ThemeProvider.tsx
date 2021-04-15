@@ -4,7 +4,7 @@ import { ThemeProvider as OriginalThemeProvider } from 'styled-components/native
 import { themes } from './themes';
 
 export default function ThemeProvider(props: { children: React.ReactChild }) {
-  const theme = themes[useColorScheme() || 'light'];
+  const theme = themes[useColorScheme() === 'dark' ? 'dark' : 'light'];
 
   const { children } = props;
 

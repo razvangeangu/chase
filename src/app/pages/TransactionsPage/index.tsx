@@ -11,15 +11,14 @@ import { transactions } from '../CardPage/constants';
 import { currentTransactions } from './constants';
 
 export interface TransactionsProps extends NavigationProps<'Transactions'> {
-  title: Array<
-    (typeof transactions extends Array<infer T> ? T : never)['name']
-  >;
+  title: (typeof transactions extends Array<infer T> ? T : never)['name'];
 }
 
 export default function SettingsPage({ route: { params } }: TransactionsProps) {
   const { title } = params!;
 
   const { i18n, t } = useTranslation();
+
   return (
     <StyledView
       // eslint-disable-next-line react-native/no-inline-styles

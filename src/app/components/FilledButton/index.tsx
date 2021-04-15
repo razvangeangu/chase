@@ -5,14 +5,18 @@ import styled from 'styled-components/native';
 export interface FilledButtonProps
   extends Pick<
     typeof TouchableOpacity extends React.ComponentType<infer T> ? T : never,
-    'onPress'
+    'onPress' | 'testID'
   > {
   title: string;
 }
 
-export default function FilledButton({ title, onPress }: FilledButtonProps) {
+export default function FilledButton({
+  title,
+  onPress,
+  testID,
+}: FilledButtonProps) {
   return (
-    <StyledTouchableOpacity onPress={onPress}>
+    <StyledTouchableOpacity testID={testID} onPress={onPress}>
       <Title>{title}</Title>
     </StyledTouchableOpacity>
   );

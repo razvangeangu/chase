@@ -35,7 +35,7 @@ export default function CardPage({ minHeight }: CardPageProps) {
   };
 
   const handleMoreTransactionsPress = (title: string) => {
-    navigate(t(translations.routes.transactions) as 'Transactions', { title });
+    navigate(t(translations.routes.transactions), { title });
   };
 
   return (
@@ -61,6 +61,7 @@ export default function CardPage({ minHeight }: CardPageProps) {
           <CreditCardView key={card.id}>
             <TouchableOpacity
               activeOpacity={0.5}
+              testID={`creditCard-${card.id}`}
               onPress={() => handleCardPress(card)}>
               <CreditCard {...card} />
             </TouchableOpacity>
@@ -74,6 +75,7 @@ export default function CardPage({ minHeight }: CardPageProps) {
       {transactions.map(({ name, icon, color }) => (
         <TransactionCategory
           key={name}
+          testID={`transactionCategory-${name}`}
           onPress={() => handleMoreTransactionsPress(name)}>
           <TransactionInfo>
             <TransactionIconContainer color={color}>
