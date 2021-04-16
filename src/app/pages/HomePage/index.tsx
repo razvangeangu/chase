@@ -16,7 +16,7 @@ import { translations } from '../../../locales/translations';
 import StyledText from '../../components/StyledText';
 import NavigationProps from '../../router';
 import CardPage from '../CardPage';
-import ChaseLogo from './assets/chase-logo.svg';
+import SvgLogo from './assets/logo.svg';
 import Settings from './assets/settings.svg';
 
 const { width, height } = Dimensions.get('window');
@@ -226,7 +226,7 @@ const TotalBalanceContainer = styled.View`
   display: flex;
 `;
 
-const Logo = styled(ChaseLogo)<{ svgHeight: number }>`
+const Logo = styled(SvgLogo)<{ svgHeight: number }>`
   aspect-ratio: 5.35;
   height: ${p => p.svgHeight}px;
   margin-top: 10px;

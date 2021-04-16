@@ -18,7 +18,7 @@ import AuthContext from '../../../utils/auth-context';
 import FilledButton from '../../components/FilledButton';
 import FlatButton from '../../components/FlatButton';
 import Input from '../../components/Input';
-import ChaseLogo from '../HomePage/assets/chase-logo.svg';
+import SvgLogo from '../HomePage/assets/logo.svg';
 import backgroundVideo from './assets/london-aerial.mp4';
 
 const { height, width } = Dimensions.get('window');
@@ -75,7 +75,7 @@ export default function LoginPage() {
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             keyboardVerticalOffset={40}>
-            <Logo as={ChaseLogo} />
+            <Logo as={SvgLogo} />
             <LoginContainer>
               <StyledInput
                 testID="userIdInput"

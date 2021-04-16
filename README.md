@@ -4,7 +4,7 @@
 
 # chase
 
-A demo application demonstrating a react-native application that resembles Chase mobile banking application.
+A demo application demonstrating a react-native mobile banking.
 
 ## Get Started
 
@@ -35,8 +35,8 @@ Once the app is installed you may run it on a device or emulator (e.g. `yarn sta
 ## Screenshots
 
 ![Login Page](./docs/assets/login.png)
-![Login Page](./docs/assets/home.png)
-![Login Page](./docs/assets/cards.png)
-![Login Page](./docs/assets/ar.png)
-![Login Page](./docs/assets/transactions.png)
-![Login Page](./docs/assets/settings.png)
+![Home Page](./docs/assets/home.png)
+![Cards Page](./docs/assets/cards.png)
+![Augmented Reality Page](./docs/assets/ar.png)
+![Transactions Page](./docs/assets/transactions.png)
+![Settings Page](./docs/assets/settings.png)
